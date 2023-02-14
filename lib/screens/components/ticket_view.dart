@@ -7,7 +7,8 @@ import 'package:ticket_booking/utils/app_styles.dart';
 import 'package:ticket_booking/widgets/circle_shape.dart';
 
 class TicketView extends StatelessWidget {
-  const TicketView({Key? key}) : super(key: key);
+  final Map<String, dynamic> tickets;
+  const TicketView({Key? key , required this.tickets}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class TicketView extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text("NYC", style: Styles.headLineStyle3.copyWith(color: Colors.white)),
+                      Text(tickets["from"]["code"], style: Styles.headLineStyle3.copyWith(color: Colors.white)),
                      const Spacer(),
                      const RoundShape(),
                     Expanded(child: Stack(
@@ -60,16 +61,16 @@ class TicketView extends StatelessWidget {
 
                     const  RoundShape(),
                     const Spacer(),
-                      Text("LND",style: Styles.textStyle.copyWith(color: Colors.white)),
+                      Text(tickets["to"]["code"],style: Styles.textStyle.copyWith(color: Colors.white)),
                     ],
                   ),
                   const Gap(3),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    Text("New-York", style: Styles.headLineStyle4.copyWith(color: Colors.white),),
-                    Text("8H 30M",style: Styles.headLineStyle4.copyWith(color:Colors.white),),
-                    Text("London",style: Styles.headLineStyle4.copyWith(color:Colors.white)),
+                    Text(tickets["from"]["name"], style: Styles.headLineStyle4.copyWith(color: Colors.white),),
+                    Text(tickets["flying_time"],style: Styles.headLineStyle4.copyWith(color:Colors.white),),
+                    Text(tickets["to"]["name"],style: Styles.headLineStyle4.copyWith(color:Colors.white)),
                   ],)
                 ],
               ),
@@ -129,19 +130,19 @@ class TicketView extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          Text("14 Feb", style: Styles.headLineStyle3.copyWith(color:Colors.white)),
+                          Text(tickets["date"], style: Styles.headLineStyle3.copyWith(color:Colors.white)),
                           Text("Date", style: Styles.headLineStyle4.copyWith(color: Colors.white))
                         ],
                       ),
                       Column(
                         children: [
-                          Text("20H:40M", style: Styles.headLineStyle3.copyWith(color:Colors.white)),
+                          Text(tickets["departure_time"], style: Styles.headLineStyle3.copyWith(color:Colors.white)),
                           Text("Departure Time", style: Styles.headLineStyle4.copyWith(color: Colors.white))
                         ],
                       ),
                       Column(
                         children: [
-                          Text("101", style: Styles.headLineStyle3.copyWith(color:Colors.white)),
+                          Text(tickets["number"].toString(), style: Styles.headLineStyle3.copyWith(color:Colors.white)),
                           Text("Number", style: Styles.headLineStyle4.copyWith(color: Colors.white))
                         ],
                       )

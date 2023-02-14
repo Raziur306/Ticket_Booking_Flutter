@@ -3,8 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
+import 'package:ticket_booking/db/hotel_list.dart';
 import 'package:ticket_booking/screens/components/ticket_view.dart';
 import 'package:ticket_booking/utils/app_styles.dart';
+
+import '../db/ticket_list.dart';
+import 'components/HotelItemView.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -91,12 +95,7 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.only(left: 16),
             scrollDirection: Axis.horizontal,
             child: Row(
-              children:const [
-                TicketView(),
-                TicketView(),
-                TicketView(),
-
-              ],
+              children:ticketList.map((e) => TicketView(tickets: e)).toList(),
             ),
           ),
 
@@ -109,7 +108,15 @@ class HomeScreen extends StatelessWidget {
               Text("Hotels", style: Styles.headLineStyle2,),
               Text("View all",style: Styles.headLineStyle3,),
             ],),
-          )
+          ),
+          const Gap(15),
+        SingleChildScrollView(
+          padding: const EdgeInsets.only(left: 16),
+          scrollDirection: Axis.horizontal,
+          child: Row(children: hotelList.map((e) => HotelItemView(hotel: e) ).toList())
+        ),
+         const Gap(20),
+
 
         ],
       ),
