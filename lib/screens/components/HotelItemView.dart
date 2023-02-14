@@ -14,7 +14,7 @@ class HotelItemView extends StatelessWidget {
     final size = AppLayout.getSize(context);
     return Container(
       width: size.width*0.6,
-      height: 350,
+      height: AppLayout.getHeight(350),
       margin: const EdgeInsets.only(right: 17, top:5),
       decoration: BoxDecoration(
         color: Styles.primaryColor,
@@ -24,7 +24,7 @@ class HotelItemView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
         Container(
-          height: 180,
+          height: AppLayout.getHeight(180),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.only(topRight: Radius.circular(21), topLeft: Radius.circular(21)),
             image:  DecorationImage(
