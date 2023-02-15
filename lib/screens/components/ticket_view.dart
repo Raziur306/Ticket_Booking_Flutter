@@ -1,4 +1,3 @@
-import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -32,7 +31,7 @@ class TicketView extends StatelessWidget {
                     children: [
                       Text(tickets["from"]["code"], style: Styles.headLineStyle3.copyWith(color: Colors.white)),
                      const Spacer(),
-                     const RoundShape(),
+                      RoundShape(shapeColor: Colors.white,),
                     Expanded(child: Stack(
                       children: [
                         SizedBox(
@@ -46,7 +45,7 @@ class TicketView extends StatelessWidget {
                                 children: List.generate((boxConstrains.constrainWidth()/6).floor(), (index) =>  SizedBox(
                                   height: AppLayout.getHeight(1),
                                   width: AppLayout.getWidth(3),
-                                  child: DecoratedBox(decoration: BoxDecoration(color: Colors.white),),
+                                  child: const DecoratedBox(decoration: BoxDecoration(color: Colors.white),),
                                 )),
                               );
                             },
@@ -56,7 +55,7 @@ class TicketView extends StatelessWidget {
                          const Center(child: Icon(Icons.local_airport_rounded, color: Colors.white,))),
                       ],
                     )),
-                    const  RoundShape(),
+                      RoundShape(shapeColor: Colors.white,),
                     const Spacer(),
                       Text(tickets["to"]["code"],style: Styles.textStyle.copyWith(color: Colors.white)),
                     ],
@@ -78,7 +77,10 @@ class TicketView extends StatelessWidget {
                 color: Styles.orangeColor,
                 borderRadius:const BorderRadius.only(bottomLeft: Radius.circular(21), bottomRight: Radius.circular(21))
               ),
-              child: Column(children: [
+              child:
+
+
+              Column(children: [
                 Row(children: [
                    SizedBox(
                     width: AppLayout.getHeight(20),
